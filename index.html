@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Calculator</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" integrity="sha512-ZwR1/gSZM3ai6vCdI+LVF1zSq/5HznD3ZSTk7kajkaj4D292NLuduDCO1c/NT8Id+jE58KYLKT7hXnbtryGmMg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <h1 class="flex whole">EECU: Calculate a Budget</h1>
+    </header>
+    <section class="flex whole row" id="main">
+        
+        <section class="flex row third" id="pie-container">
+            <table id="breakdown" class="whole tableborder">
+                <thead class="tableborder">
+                    <th colspan="3">Income Breakdown</th>
+                </thead>
+                <tbody id="incometbody">
+                    <tr>
+                        <th scope="row">Gross Annual Income</th>
+                        <td>$</td>
+                        <td>2400</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gross Monthly Income</th>
+                        <td>$</td>
+                        <td>4000</td>
+                    </tr>
+                    
+                    
+                </tbody>
+                <thead class="tableborder">
+                    <th colspan="3">Net Monthly Income</th>
+                </thead>
+                
+                <tbody id="calctbody">
+                    <tr>
+                        <th scope="row">Payroll Deductions</th>
+                        <td>$</td>
+                        <td>-2000</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Net Monthly Income</th>
+                        <td>$</td>
+                        <td>+2000</td>
+                    </tr>
+                    
+                </tbody>
+                <thead class="tableborder">
+                    <th colspan="3">Expenses Breakdown</th>
+                </thead>
+                <tbody id="expensestbody">
+                    <tr>
+                        <th scope="row">Transportaion</th>
+                        <td>$</td>
+                        <td>-1000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <thead class="tableborder">
+                        <th colspan="3">Totals</th>
+                    </thead>
+                    <tbody id="bdbody">
+                        <tr class="tableborder">
+                            <th scope="row">Payroll Deductions</th>
+                            <td>$</td>
+                            <td>-10000</td>
+                        </tr>
+                        <tr class="tableborder">
+                            <th scope="row">Total Expenses</th>
+                            <td>$</td>
+                            <td>-10000</td>
+                        </tr>
+                        <tr class="tableborder">
+                            <th scope="row">Leftover</th>
+                            <td>$</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </tfoot>
+            </table>
+            
+           
+            <section class="flex row" id="chart-container">
+                <canvas id="chart"> </canvas>
+
+            </section>
+        </section>
+        <section class="flex twothird" id="input">
+            <form class="whole flex row" action="" id="form1">
+                <section class="income-container flex row whole">
+                    <label class="whole" for="gross-annual-income">Gross Income</label>
+                    <input value="24000" class="text-field whole" type="number" name="gross-annual-income" id="gross-annual-income">
+                    <a href="career.html" target="_blank">View Example Careers Here</a>
+                </section>
+                <h2 class="flex row whole">Payroll Deductions (%)</h2>
+                <section class="half flex row">
+                    <label class="whole" for="federal-tax">Federal Tax</label>
+                    <input value="12" class="text-field whole" type="number" name="federal-tax" id="federal-tax">
+                    <label class="whole" for="state-tax">State Tax</label>
+                    <input value="7" class="text-field whole" type="number" name="state-tax" id="state-tax">
+                    <label class="whole" for="social-security">Social Security</label>
+                    <input value="6.2" class="text-field whole" type="number" name="social-security" id="social-security">
+                    <label class="whole" for="medicare">Medicare</label>
+                    <input value="1.45" class="text-field whole" type="number" name="medicare" id="medicare">
+                    
+                </section>
+                <section class="half flex row">
+                    <label class="whole" for="state-disability">Disability</label>
+                    <input value="1" class="text-field whole" type="number" name="state-disability" id="state-disability">
+                    <label class="whole" for="retirement">Retirement Investment</label>
+                    <input value="5" class="text-field whole" type="number" name="retirement" id="retirement">
+                    
+                    <label class="whole" for="medical-insurance">Medical Insurance (Subtracted last)</label>
+                    <input value="180" class="text-field whole" type="number" name="medical-insurance" id="medical-insurance">
+                </section>
+                <section class="half flex row" id="continueContainer">
+                    <input type="button" value="Continue" class="continue whole text-field flex" onclick="hide('form1', 'form2')">
+                </section>
+            </form>
+            <form class="whole flex row hidden" action="" id="form2">
+                <section class="half flex row">
+                    <label class="whole" for="transportation">Transportaion</label>
+                    <input value="1000" class="text-field whole" type="number" name="transportation" id="transportation">
+                    <label class="whole" for="housing">Housing</label>
+                    <input value="1000" class="text-field whole" type="number" name="housing" id="housing">
+                    <label class="whole" for="education">Education</label>
+                    <input value="500" class="text-field whole" type="number" name="education" id="education">
+                    <label class="whole" for="entertainment">Entertainment</label>
+                    <input value="100" class="text-field whole" type="number" name="entertainment" id="entertainment">
+                </section>
+                <section class="half flex row">
+                    <label class="whole" for="savings">Savings</label>
+                    <input value="50" class="text-field whole" type="number" name="savings" id="savings">
+                    <!-- <input type="button" value="plus" class="half text-field flex" id="plus"> -->
+                    <!-- <img src="img/plus.png" alt="" class="fourth" id="plus"> -->
+
+                </section>
+                <section class="half flex row" id="continueContainer">
+                    <input type="button" value="Finish" class="whole text-field flex continue" onclick="hide('form2', 'text')">
+                    <input type="button" value="Back" class="whole text-field flex" id="back" onclick="hide('form2', 'form1')">
+                </section>
+            </form>
+            <section id="text" class="hidden whole flex">
+                <p>Calculating Your Stuff</p>
+            </section>
+            
+        </section>
+        
+    </section>
+    <footer>
+
+        <p>Created by the Students of CART's 2023-2024 Web Application Development Class</p>
+        <p><em>Wise up!</em> With EECU</p>
+    </footer>
+</body>
+
+</html>

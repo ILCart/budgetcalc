@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    --maincolor: #105ca4;
+    --accentcolor: rgb(89, 111, 140);
+    --accentcolor2:rgb(70, 76, 84);
+    --textcolor: #FFFFFF;
+    --textcolor2: #769dac;
+
+}
+
+h1 {
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.whole {
+    width: 100%;
+}
+
+.half {
+    width: 50%;
+}
+
+.twothird {
+    width: 66.667%;
+}
+
+.third {
+    width: 33.33%;
+}
+
+.row {
+    flex-flow: row wrap;
+}
+
+.fourth {
+    width: 25%;
+}
+
+#main {
+    padding: 2%;
+    color: var(--textcolor);
+}
+
+header {
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+}
+
+body {
+    /* background-color: var(--textcolor); */
+    background-image: url(img/sayagata-400px.png);
+}
+
+#pie-container {
+    /* height: 100%; */
+    border-right: var(--textcolor) .3rem solid;
+    padding: 1%;
+    background-color: var(--maincolor);
+    /* width: 25vw; */
+}
+
+#input {
+    color: black;
+}
+
+#chart-container {
+    justify-content: center;
+    width: 100%;
+}
+
+.text-field {
+    align-self: flex-start;
+    background-color: var(--maincolor);
+    padding: 1%;
+    border-radius: .70rem;
+    border: solid .16rem var(--textcolor);
+    height: 4rem;
+    font-size: 1.2rem;
+    color: var(--textcolor);
+}
+
+form {
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+    justify-content: space-evenly;
+    align-content: flex-start;
+}
+
+form .half {
+    align-content: flex-start;
+    padding: 2%;
+    justify-content: center;
+}
+
+.income-container {
+    padding: 2%;
+}
+
+form .half>label {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+label[for="gross-income"] {
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.continue,
+#back {
+    align-content: center;
+    justify-content: center;
+    font-size: x-large;
+    color: var(--textcolor);
+    margin-bottom: 1.5rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#plus {
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+    height: 4rem;
+    width: 4rem;
+    margin-top: 1.5rem;
+}
+
+
+#continueContainer {
+    padding: 2%;
+}
+
+
+
+#root {
+    flex-flow: row wrap;
+    padding: 1%;
+}
+
+#root>section {
+    padding: 1.5% 0;
+    width: 25%;
+}
+
+
+table {
+    letter-spacing: .1rem;
+    border-collapse: collapse;
+    margin-bottom: 5%;
+}
+
+table>tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+/* #expenses, #expenses tr, #expenses td:nth-child(odd), #expenses th:nth-child(odd){
+    border: .125rem solid var(--textcolor);
+    padding: 1.5%;
+}
+#expenses td:nth-child(even) , #expenses th:nth-child(even){
+    text-align: center;
+} */
+tr,
+td,
+th {
+    padding: 0%;
+}
+th{
+    text-transform: capitalize;
+}
+table {
+    text-align: left;
+}
+
+table>thead {
+    background-color: var(--accentcolor);
+    text-align: center;
+}
+
+.tableborder {
+    border: .2rem solid var(--textcolor);
+}
+
+form h2 {
+    font-size: 2rem;
+    padding: 0 2%;
+}
+
+#calctbody tr:nth-last-child(2),#bdfoot tr:nth-last-child(2){
+    background-color: #842828 !important;
+}
+#calctbody tr:nth-last-child(1){
+    background-color: #288430 !important;
+}
+
+@media (max-width: 950px) {
+    form>section {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #main section {
+        width: 100% !important;
+    }
+
+    #root>section {
+        width: 50%;
+    }
+
+}
